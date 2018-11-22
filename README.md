@@ -1,6 +1,15 @@
+[![Build Status](https://travis-ci.org/carlosonunez/authy-cli-docker.svg?branch=master)](https://travis-ci.org/carlosonunez/authy-cli-docker)
+
 The Authy node client for Docker.
 
 # How to build
+
+**NOTE**: You will need a GitHub token with `repo:public_repo` rights to contribute. 
+The token is used by Travis to encrypt your environment variables during pull requests.
+
+To create one, go to [this](https://github.com/settings/tokens) page in your
+GitHub settings and click on "Generate New Token." Ensure that
+`repo:public_repo` is checked.
 
 1. Fork this repository.
 2. Copy the environment file: `make env`

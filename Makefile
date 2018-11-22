@@ -39,7 +39,7 @@ build:
 	fi
 
 test:
-	docker run -e DOCKER_IMAGE_UNDER_TEST=$(IMAGE_PATH) \
+	docker run -e DOCKER_IMAGE_UNDER_TEST=$(IMAGE_PATH):$(LATEST_COMMIT_SHA) \
 		-v $(PWD):/app \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		graze/bats /app/tests
@@ -55,6 +55,15 @@ deploy:
 	docker push $(IMAGE_PATH);
 
 encrypt_env:
+	if [ -z "$(TRAVIS_GITHUB_TOKEN)" ]; \
+	then \
+		>&2 echo "ERROR: You'll need a GitHub token if you'd like to contribute. \
+Follow these instructions to create one: "; \
+		exit 1; \
+	fi; \
+	rm -f .env.enc && \
 	docker run -v "$(PWD):/work" \
 		-w /work \
-		skandyla/travis-cli encrypt --add .env
+		--entrypoint sh \
+		skandyla/travis-cli \
+			-c "travis login --github-token $(TRAVIS_GITHUB_TOKEN) && travis encrypt-file -a before_install .env"

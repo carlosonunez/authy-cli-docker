@@ -1,8 +1,7 @@
 services:
 - docker
 script:
-- make build
-- make test
-'':
-  env:
-    secure: CseeEQ3QJPJspBItV2bYb4o3b+/J8S24xwDKs29SxkM/py52FflikW9eZJzntjC1i41RJGP1I7hei0DBxAVU8ANL/QyAY4BNZVbftE2ML9HlrOsFlou2Qq6XWNYS0EWSy1AE4+RqcGhIGydLic/696mDb6Xon9+XNo3CWGAB5PBzlpqZdGqBnyP+kp2+jeORobOvA1OMwAkXrzeRDRGzIx11PNYBx2ZPFVW1PCP+x5e6zHjxD8IZfug6LUvpcsisl2anbhKlC9vu5Mv0GUCyA3Ro9uDj9SSg4xCDHH/kvenhShqELhdN6lC76YibiX42pYiFVH+pj58u0AdSX1pCiWuVpY3/Jntfy1rFeNwNVbq36ejGjjK/1TOyLmlRUSWqFL4oByN7o/Elv9KNtN+dqGE1UVFsjaN5HZphZQKGFTHPH25jpNDAV9/tOKPBjdttEq3UglcQDHwXYah+iV2A9MTWLE1ImZbQTrTPYXV7JKvCtJ0WoNrcphho0qcydt0Cu8akt8hI1JQJDv9+72FD6Sdt3PGdHMD2/ygjqt/lgPJ27bJQYAlJORlNy5n+r6jzauP75oSFnNkqWazKnY1SuvSsKQT8t/IwU9TR608BrFO2l9GtgKXBpR9709LWw6Q/eNWse+litZqgz9Oe+HxHOPxINHHJr6y//RpD9+jut44=
+- make build test
+before_install:
+- openssl aes-256-cbc -K $encrypted_342f2f6ad141_key -iv $encrypted_342f2f6ad141_iv
+  -in .env.enc -out .env -d
