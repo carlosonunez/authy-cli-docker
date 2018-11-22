@@ -2,8 +2,9 @@ services:
 - docker
 script:
 - make build test
+  if: type = pr
 - make deploy
-  if: branch = master AND type = pr AND fork = false
+  if: branch = master AND type = push AND fork = false
 before_install:
 - openssl aes-256-cbc -K $encrypted_342f2f6ad141_key -iv $encrypted_342f2f6ad141_iv
   -in .env.enc -out .env -d
