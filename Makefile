@@ -51,7 +51,6 @@ deploy:
 		exit 1; \
 	fi; \
 	docker login -u $(DOCKER_HUB_USERNAME) -p $(DOCKER_HUB_PASSWORD) && \
-	docker tag $(IMAGE_PATH):$(LATEST_COMMIT_SHA) && \
 	docker push $(IMAGE_PATH):$(LATEST_COMMIT_SHA);
 
 encrypt_env:
