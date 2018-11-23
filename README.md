@@ -22,8 +22,8 @@ GitHub settings and click on "Generate New Token." Ensure that
 
 `docker run carlosnunez/authy-cli --help`
 
-For full instructions, [see the official Authy documentation instead.](https://authy.com/guides/npm/)
+For full instructions, [see the authy-client documentation instead.](https://github.com/ruimarinho/authy-client)
 
 # But get it on Docker Hub instead!
 
-It's under carlosonunez/authy-cli.
+It's under carlosnunez/authy-cli.

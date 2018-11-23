@@ -9,7 +9,7 @@ setup() {
 }
 
 @test "Given a Docker image with Authy on it, when I create a container from it, then Authenticator is present." {
-  run docker run --rm --entrypoint sh -- ${DOCKER_IMAGE_UNDER_TEST} -c "which authenticator >/dev/null"
+  run docker run --rm --entrypoint sh -- ${DOCKER_IMAGE_UNDER_TEST} -c "which authy >/dev/null"
   echo "Status: $status, Out: $output"
   [ "$status" == 0 ]
 }
