@@ -39,7 +39,7 @@ build:
 	fi
 
 test:
-	docker run -e DOCKER_IMAGE_UNDER_TEST=$(IMAGE_PATH):$(LATEST_COMMIT_SHA) \
+	docker run --rm -e DOCKER_IMAGE_UNDER_TEST=$(IMAGE_PATH):$(LATEST_COMMIT_SHA) \
 		-v $(PWD):/app \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		graze/bats /app/tests
@@ -58,7 +58,7 @@ Follow these instructions to create one: "; \
 		exit 1; \
 	fi; \
 	rm -f .env.enc && \
-	docker run -v "$(PWD):/work" \
+	docker run --rm -v "$(PWD):/work" \
 		-w /work \
 		--entrypoint sh \
 		skandyla/travis-cli \
